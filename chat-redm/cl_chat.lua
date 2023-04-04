@@ -36,8 +36,7 @@ AddEventHandler('chatMessage', function(author, color, text)
 end)
 
 AddEventHandler('__cfx_internal:serverPrint', function(msg)
-  print(msg)
-
+  if string.len(msg) == 0 then return end
   SendNUIMessage({
     type = 'ON_MESSAGE',
     message = {
